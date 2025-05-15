@@ -1,0 +1,263 @@
+@charset "utf-8";
+
+#khung {
+    width: 903px;
+    margin: 0 auto
+}
+
+#chiase {
+    position: fixed;
+    top: 80%;
+    left: 89%;
+    padding: 2px;
+    z-index: 10;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#left {
+    float: left;
+    height: auto;
+    width: 192px;
+    background-color: #FFF;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    margin: 5px 0
+}
+
+#noidung {
+    float: right;
+    text-align: justify;
+    height: auto;
+    width: 695px;
+    margin-top: 5px;
+    background-color: #FFF;
+    margin-bottom: 5px;
+    padding: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px
+}
+
+#noidung2 {
+    float: left;
+    height: auto;
+    width: 500px;
+    margin-top: 5px;
+    margin-left: 5px;
+    background-color: #FFF;
+    margin-bottom: 5px;
+    padding: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px
+}
+
+#bottom {
+    text-align: center;
+    width: 695px;
+    height: 170px;
+    float: right;
+    background-image: url('https://luongynguyenhuutoan.com/images/bannerCC.jpg');
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 20px;
+    margin-bottom: 0
+}
+
+#reight {
+    float: right;
+    height: auto;
+    width: 190px;
+    background-color: #FFF;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    margin: 5px 0
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9
+}
+
+@media screen and (max-width: 750px) {
+    #khung {
+        width: 100%;
+        margin: 0 auto
+    }
+
+    #left {
+        float: left;
+        height: auto;
+        width: 27%;
+        background-color: #FFF;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+        margin: 5px 0
+    }
+
+    #noidung {
+        fload: right;
+        height: auto;
+        width: 71%;
+        margin-top: 5px;
+        background-color: #FFF;
+        margin-bottom: 5px;
+        padding: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px
+    }
+
+    #bottom {
+        text-align: center;
+        width: 100%;
+        height: 170px;
+        clear: both;
+        background-image: url('https://luongynguyenhuutoan.com/images/bannerCC.jpg');
+        float: left;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 20px;
+        margin-bottom: 0
+    }
+
+    #reight {
+        float: right;
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        background-color: #FFF;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+        margin: 5px 0
+    }
+
+    .video embed,
+    .video object,
+    .video iframe {
+        width: 100%;
+        height: auto;
+        min-height: 300px
+    }
+}
+
+@media screen and (max-width: 570px) {
+    #khung {
+        width: 100%;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+        margin: 0 auto
+    }
+
+    #chiase {
+        position: fixed;
+        top: 92%;
+        left: 55%;
+        padding: 2px;
+        z-index: 10;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    #left {
+        float: left;
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        background-color: #FFF;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+        margin: 5px 0
+    }
+
+    #noidung {
+        clear: both;
+        height: auto;
+        width: 98%;
+        margin-top: 5px;
+        margin-left: 0;
+        background-color: #FFF;
+        margin-bottom: 5px;
+        padding: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px
+    }
+
+    #bottom {
+        text-align: center;
+        width: 100%;
+        height: 170px;
+        clear: both;
+        background-image: url('https://luongynguyenhuutoan.com/images/bannerCC.jpg');
+        float: left;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 20px;
+        margin-bottom: 0
+    }
+
+    #reight {
+        float: right;
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        background-color: #FFF;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+        margin: 5px 0
+    }
+
+    .video embed,
+    .video object,
+    .video iframe {
+        width: 100%;
+        height: auto
+    }
+}

@@ -1,0 +1,607 @@
+body.index-page.scrolled {
+    text-align: justify;
+}
+
+/* Định dạng cho phần tử dropdown */
+@media (min-width: 768px) {
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Định dạng dropdown khi hover */
+    .dropdown:hover .dropdown-content {
+        display: flex;
+    }
+
+    /* Định dạng dropdown-content */
+    .dropdown-content {
+        display: none;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        position: absolute;
+        width: 70vw;
+        /* Điều chỉnh width theo nhu cầu */
+        left: 70%;
+        transform: translateX(-50%);
+        background-color: #f9f9f9;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Căn đều các cột trong dropdown */
+    .dropdown-content li {
+        width: 20%;
+        /* Điều chỉnh width để có 3 cột đều nhau */
+        list-style: none;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Định dạng cho các liên kết */
+    .dropdown-content li a {
+        text-decoration: none;
+        color: black;
+        display: block;
+        padding: 5px 0;
+    }
+
+}
+
+/* CSS để lùi đầu dòng */
+.text-indent {
+    text-indent: 2em;
+    /* Lùi đầu dòng 2em */
+    text-align: justify;
+}
+
+pre {
+    white-space: pre-wrap;
+    /* Cho phép xuống dòng tự động */
+    word-wrap: break-word;
+    /* Ngắt từ nếu quá dài */
+    overflow-x: hidden;
+    /* Ẩn thanh cuộn ngang */
+    font-family: 'Times New Roman', Times, Serif;
+    font-size: 18px;
+
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.highlight {
+    color: blue;
+    font-weight: bold;
+}
+
+.contact-info {
+    color: green;
+    font-weight: bold;
+    font-size: xx-large;
+}
+.contact-info_2 {
+    color: green;
+    font-weight: bold;
+    font-size: large;
+}
+.icon {
+    margin-right: 5px;
+}
+
+/* style mới  */
+.background-section {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-image: url("undefined - Imgur.png");
+    /* Đảm bảo hình ảnh được lưu trữ đúng vị trí hoặc thay đổi đường dẫn */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.card {
+    padding: 30px 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border: none !important;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+}
+
+.blue-text {
+    color: #00BCD4
+}
+
+.form-control-label {
+    margin-bottom: 0
+}
+
+input,
+textarea,
+button {
+    padding: 8px 15px;
+    border-radius: 5px !important;
+    margin: 5px 0px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    font-size: 18px !important;
+    font-weight: 300
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #00BCD4;
+    outline-width: 0;
+    font-weight: 400
+}
+
+.btn-block {
+    text-transform: uppercase;
+    font-size: 15px !important;
+    font-weight: 400;
+    height: 43px;
+    cursor: pointer
+}
+
+.btn-block:hover {
+    color: #fff !important
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+@media screen and (min-width: 720px) {
+    .form-info {
+        width: 60%;
+    }
+}
+
+/* hết style mới  */
+.image-icon {
+    align-self: stretch;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.author {
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.author,
+.heading,
+.supporting-text {
+    align-self: stretch;
+    position: relative;
+}
+
+.heading {
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.supporting-text {
+    font-size: var(--text-md-normal-size);
+    line-height: 24px;
+    color: #c0c5d0;
+}
+
+.heading-and-text,
+.heading-and-text1 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.heading-and-text1 {
+    gap: var(--gap-5xs);
+    font-size: var(--text-lg-semibold-size);
+    color: #fff;
+}
+
+.heading-and-text {
+    gap: 12px;
+}
+
+.text {
+    position: relative;
+    line-height: 20px;
+    font-weight: 500;
+    display: inline-block;
+    min-width: 47px;
+}
+
+.badge,
+.badge-base {
+    display: flex;
+    flex-direction: row;
+}
+
+.badge-base {
+    border-radius: var(--br-base);
+    background-color: #ecfdf3;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-11xs) var(--padding-3xs);
+}
+
+.badge {
+    align-items: flex-start;
+    justify-content: flex-start;
+    mix-blend-mode: lighten;
+}
+
+.text1 {
+    position: relative;
+    line-height: 20px;
+    font-weight: 500;
+    display: inline-block;
+    min-width: 63px;
+}
+
+.badge-base1 {
+    border-radius: var(--br-base);
+    background-color: #fdf2fa;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-11xs) var(--padding-3xs);
+}
+
+.badge1 {
+    flex-direction: row;
+    mix-blend-mode: lighten;
+    color: #c11574;
+}
+
+/* ngaymoi */
+
+
+
+.contact-info h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    color: #c9c9c9;
+    font-size: 16px;
+}
+
+.contact-info .icon-container {
+    margin: 20px 0;
+}
+
+.contact-info .icon-container i {
+    color: #fff;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.contact-info .contact-detail {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.contact-info .social-icons i {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+.contact-info .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-info .social-icons a img {
+    margin: 0 10px;
+    border-radius: 50%;
+}
+
+/* end style mới*/
+
+
+/* CSS hiện tại cho desktop */
+.Container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.BlogPostCard {
+    flex: 1;
+}
+
+.Image {
+    width: 592px;
+    height: 280px;
+}
+
+.Content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.Heading {
+    color: #1A1A1A;
+    font-size: 24px;
+    font-family: Inter;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.SupportingText {
+    text-align: justify;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+/* CSS cho mobile */
+@media only screen and (max-width: 767px) {
+    .Container {
+        flex-direction: column;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .BlogPostCard {
+        margin-bottom: 16px;
+        width: 100%;
+    }
+
+    .BlogPostCard img {
+        width: 100%;
+        height: auto;
+    }
+
+    .Content {
+        width: 100%;
+    }
+
+    .Heading {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .SupportingText {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    section,
+    .section {
+        color: var(--default-color);
+        background-color: var(--background-color);
+        padding: 30px 0;
+        scroll-margin-top: 100px;
+        overflow: clip;
+    }
+
+    iframe {
+        height: 50%;
+    }
+
+    .btn-block {
+        background-color: #1db902;
+        color: #f9f9f9;
+    }
+}
+/* mới  */
+.footer {
+    background-color: #fff;
+    color: #333;
+    padding: 20px 0;
+    text-align: left;
+    
+  }
+  .footer_end {
+    display: flex;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  .footer-column {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+  }
+  .footer-column h3 {
+    color: #87C44A;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .footer-column p, .footer-column a {
+    color: #333;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  .footer-column a:hover {
+    text-decoration: underline;
+  }
+  .footer-column .contact-info {
+    margin-bottom: 10px;
+  }
+  .footer-bottom {
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    font-size: 14px;
+    color: #333;
+  }
+  .social-icons {
+    margin-top: 10px;
+  }
+  .social-icons img {
+    margin: 0 5px;
+    width: 24px;
+    height: 24px;
+  }
+  .certifications {
+    margin-top: 10px;
+  }
+  .certifications img {
+    margin: 0 5px;
+    width: 50px;
+    height: auto;
+  }
+  hr{
+    background: #c0c5d0;
+  }
+  @media (max-width: 768px) {
+    .footer_end {
+      padding: 0 10px;
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-column {
+      min-width: 100%;
+      margin: 10px 0;
+    }
+    .footer-bottom {
+      padding: 10px 10px;
+    }
+    a.active  {
+        font-size: larger;
+        font-weight: 600;
+        color: #4d9924!important;
+    }
+    .dropdown a span {
+        font-size: larger;
+        font-weight: 600;
+        color: #4d9924 !important;
+    
+    }
+    h1.sitename {
+        font-size: x-large !important;
+        padding: 2px;
+    }
+    .header-inner.container.d-flex.justify-content-between.align-items-center {
+        flex-direction: inherit !important;
+    }
+    .BlogPostCard {
+        display: none;
+    }
+    .about-2 .content { 
+        padding-top: 15px;
+        text-align: center;
+    }
+    .SupportingText {
+        font-size: large;
+        font-family: 'Roboto';
+    }
+  }
+  @media (min-width: 768px) {
+    li a.active  {
+        font-size: larger;
+        font-weight: 600;
+        color: hsl(0, 0%, 100%) !important;
+    }
+    .dropdown a span {
+        font-size: larger;
+        font-weight: 600;
+        color: hsl(0, 0%, 100%) !important ;
+    
+    }
+    
+  }
+  
+  /* header */
+  #header {
+    background-color: #4d9924;
+    padding: 0px !important;
+  }
+  #header h1 {
+    color: hsl(0, 0%, 100%);
+  }
+#logo {
+    margin-left: 15%;
+}
+#right {
+    margin-right: 15%;
+}
+#masthead {
+    padding: 20px 0;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_logo {
+    width: 130px;
+    height: auto;
+}
+
+#logo p {
+    font-size: 14px;
+    color: #7ac142;
+    margin-top: 10px;
+}
+
+#center p {
+    font-size: 20px;
+    color: #6cb721;
+    margin: 0;
+    line-height: 1.5;
+}
+
+#right p {
+    font-size: 14px;
+    color: #6cb721;
+    margin: 0;
+}
+
+#right strong {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    #logo {
+        margin: 0 !important;
+    }
+    #right {
+        display: none;
+    }
+    .header-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #logo, #center, #right {
+        margin-bottom: 10px;
+    }
+}
+/* slide */
+
+  
+
+
+   
