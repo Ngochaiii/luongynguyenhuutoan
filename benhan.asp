@@ -151,7 +151,7 @@ p    {font-family: 'Merriweather', 'Times New Roman', Times, Serif;font-size: 18
 						</p>
 										<p>
 						<b><u>Cơ sở 2: </u></b>Nhà số 
-						16, lô 1B, Trung Yên 11, Trung Hòa, Cầu Giấy, Hà Nội</p>
+						8, ngõ 60, Vũ Phạm Hàm,, Trung Hòa, Cầu Giấy, Hà Nội</p>
 										<p>
 						<b>(hoặc vào thẳng 
 						ngõ 40 trung kính cũ 190m, bên phải đường là trường mầm 
@@ -172,7 +172,7 @@ p    {font-family: 'Merriweather', 'Times New Roman', Times, Serif;font-size: 18
 						<img border="0" src="thuoc_chua_benh_viem_dau_images/sodohanoi.jpg" width="440" height="427"></p>
 										<p>
 						&nbsp;<u><b>Điện 
-						thoại liên hệ</b></u>: <b>02257300111 -18006834 
+						thoại liên hệ</b></u>: <b>18006834 
 						-0912759613</b></p>
 										<p>
 						<font color="#008000">&nbsp;<b>Email:</b> </font>
