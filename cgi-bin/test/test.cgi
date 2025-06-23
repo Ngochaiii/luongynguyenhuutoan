@@ -9,6 +9,7 @@ Content-type: text/html
 <title></title>
 <meta http-equiv="Content-Type" content="text/html">
 <link rel="stylesheet" type="text/css" href="../../css/style.css">
+<script src="/assets/assets/js/seo-manager.js"></script>
 </head>
 <body>
 <table cellspacing="0" cellpadding="0" border="0">

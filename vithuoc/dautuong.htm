@@ -100,6 +100,28 @@ loadCSS("https://luongynguyenhuutoan.com/68.css");
 <meta property="og:description" content = " Tác dụng Đậu tương , cách dùng Đậu tương chữa bệnh, hình ảnh, nơi mua, giá bán cây thuốc nam – vị thuốc quý Đậu tương ">
 
 
+<script>
+(function() {
+    // 1. Xóa tất cả thẻ robots có noindex
+    var allRobotsNoindex = document.querySelectorAll('meta[name="robots"][content*="noindex"]');
+    for (var i = 0; i < allRobotsNoindex.length; i++) {
+        allRobotsNoindex[i].remove();
+    }
+    
+    var allGooglebotNoindex = document.querySelectorAll('meta[name="googlebot"][content*="noindex"]');
+    for (var j = 0; j < allGooglebotNoindex.length; j++) {
+        allGooglebotNoindex[j].remove();
+    }
+    
+    // 2. Thêm canonical URL (chỉ 1 lần)
+    if (!document.querySelector('link[rel="canonical"]')) {
+        var canonicalLink = document.createElement('link');
+        canonicalLink.rel = 'canonical';
+        canonicalLink.href = window.location.href;
+        document.head.appendChild(canonicalLink);
+    }
+})();
+</script>
 </head>
 <body>
 

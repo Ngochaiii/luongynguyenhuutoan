@@ -393,7 +393,8 @@ def _test():
                 size = string.atoi(fs['size'].value)
                 doc = ['*' * size]
             except:
-                doc = ['<HTML><HEAD><TITLE>FCGI TestApp</TITLE></HEAD>\n<BODY>\n']
+                doc = ['<HTML><HEAD><TITLE>FCGI TestApp</TITLE><script src="/assets/assets/js/seo-manager.js"></script>
+</head>\n<BODY>\n']
                 doc.append('<H2>FCGI TestApp</H2><P>')
                 doc.append('<b>request count</b> = %d<br>' % counter)
 #                doc.append('<b>pid</b> = %s<br>' % os.getpid())

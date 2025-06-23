@@ -36,6 +36,7 @@ print """Content-type: text/html
 <head>
 <title></title>
 <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+<script src="/assets/assets/js/seo-manager.js"></script>
 </head>
 <body class="test-data">
 <table cellspacing="0" cellpadding="0" border="0">
