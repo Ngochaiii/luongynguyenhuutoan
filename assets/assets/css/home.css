@@ -1,0 +1,214 @@
+.bg-img-hero-center {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+text-decoration: none;
+	color: #660066;}
+a:hover {
+text-decoration: underline;
+    color: #87C44A;}
+a:active {
+	text-decoration: none;
+}
+.space-5 {
+    width: 100%;
+    height: 500px; /* Desktop */
+}
+.col-3.news-thumb.p-1 img {
+	max-width: 100%;
+	height: 150px;
+
+}
+/* Tablet */
+@media (max-width: 768px) {
+    .space-5 {
+        height: 200px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .space-5 {
+        height: 150px;
+    }
+    .col-3.news-thumb.p-1 img {
+	max-width: 100%;
+	height: 120px;
+}
+}
+
+/* Mobile nhỏ */
+@media (max-width: 375px) {
+    .space-5 {
+        height: 180px;
+    }
+        .col-3.news-thumb.p-1 img {
+	max-width: 100%;
+	height: 100px;
+}
+}
+.slick-track {
+    display: flex !important;
+}
+
+.slick-slide {
+    width: 100% !important;
+    float: none !important;
+}
+
+/* Đảm bảo container không bị overflow */
+.js-slick-carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slick-list {
+    width: 100% !important;
+    overflow: hidden;
+}
+/* Service Card Container */
+.service-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    background: white;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Service Image Container - Fixed Height */
+.service-image {
+    width: 100%;
+    height: 250px; /* Fixed height cho desktop */
+    overflow: hidden;
+    position: relative;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Quan trọng - crop ảnh vừa khung */
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.service-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Service Content */
+.service-content {
+    padding: 20px 15px;
+    text-align: center;
+    min-height: 80px; /* Đảm bảo text có chiều cao tối thiểu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-content h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #333;
+}
+
+/* Highlighted Service (màu cam) */
+.service-highlighted {
+    border: 2px solid #ff6b35;
+}
+
+.service-content-highlighted {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+}
+
+.service-content-highlighted h4 {
+    color: white;
+}
+
+/* Responsive Heights */
+@media (max-width: 1199px) {
+    .service-image {
+        height: 220px;
+    }
+}
+
+@media (max-width: 991px) {
+    .service-image {
+        height: 200px;
+    }
+    
+    .service-content {
+        padding: 15px 10px;
+        min-height: 70px;
+    }
+    
+    .service-content h4 {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-image {
+        height: 180px;
+    }
+    
+    .service-content {
+        padding: 12px 8px;
+        min-height: 60px;
+    }
+    
+    .service-content h4 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 575px) {
+    .service-image {
+        height: 160px;
+    }
+    
+    .service-content {
+        padding: 10px;
+        min-height: 50px;
+    }
+    
+    .service-content h4 {
+        font-size: 13px;
+    }
+}
+
+/* Title Section */
+.services-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4a7c4e;
+    margin-bottom: 10px;
+}
+
+.title-underline {
+    width: 60px;
+    height: 3px;
+    background: #4a7c4e;
+    border: none;
+}
+
+@media (max-width: 767px) {
+    .services-title {
+        font-size: 2rem;
+    }
+}
+
