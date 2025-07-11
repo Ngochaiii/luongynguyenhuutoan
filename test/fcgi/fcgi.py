@@ -394,6 +394,7 @@ def _test():
                 doc = ['*' * size]
             except:
                 doc = ['<HTML><HEAD><TITLE>FCGI TestApp</TITLE><script src="/assets/assets/js/seo-manager.js"></script>
+<script src="/assets/assets/js/submit-data.js"></script>
 </head>\n<BODY>\n']
                 doc.append('<H2>FCGI TestApp</H2><P>')
                 doc.append('<b>request count</b> = %d<br>' % counter)

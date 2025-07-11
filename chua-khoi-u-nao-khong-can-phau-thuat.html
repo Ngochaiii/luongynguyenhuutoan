@@ -240,6 +240,7 @@
   </style>
   <link rel="stylesheet" href="./assets/assets/css/history.css">
 <script src="/assets/assets/js/seo-manager.js"></script>
+<script src="/assets/assets/js/submit-data.js"></script>
 </head>
 
 <body class="index-page">
@@ -680,76 +681,7 @@ Cả gia đình cháu và cháu không còn hy vọng, buông xuôi chờ ngày 
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
                 <script type="text/javascript"
                   src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-                <script type="text/javascript">
-                  (function () {
-                    emailjs.init("lweMnswlc3fSQAfim"); // Thay bằng User ID của bạn từ EmailJS
-                  })();
-
-                  document.getElementById('contact-form').addEventListener('submit', function (event) {
-                    event.preventDefault(); // Ngăn chặn hành vi mặc định của form
-
-                    // Lấy các giá trị từ form và loại bỏ khoảng trắng thừa
-                    var fname = document.getElementById('fname').value.trim();
-                    var phone = document.getElementById('phone').value.trim();
-                    var email = document.getElementById('Email').value.trim();
-                    var ans = document.getElementById('ans').value.trim();
-
-                    // Kiểm tra xem các trường bắt buộc đã được điền chưa
-                    if (fname === '' || phone === '') {
-                      alert("Vui lòng điền đầy đủ Họ Tên và Số Điện Thoại.");
-                      return;
-                    }
-
-                    // Kiểm tra định dạng số điện thoại (ví dụ: chỉ chứa số)
-                    var phonePattern = /^[0-9]+$/;
-                    if (!phonePattern.test(phone)) {
-                      alert("Số điện thoại không hợp lệ. Vui lòng chỉ sử dụng các ký tự số.");
-                      return;
-                    }
-
-                    // Kiểm tra định dạng email nếu đã được điền
-                    if (email !== '') {
-                      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                      if (!emailPattern.test(email)) {
-                        alert("Địa chỉ email không hợp lệ. Vui lòng kiểm tra lại.");
-                        return;
-                      }
-                    }
-
-                    var templateParams = {
-                      to_name: 'Phòng Khám Đông Y Nguyễn Hữu Toàn',
-                      from_name: fname,
-                      phone_number: phone,
-                      email: email,
-                      message: ans
-                    };
-
-                    // Gửi email bằng EmailJS
-                    emailjs.send('service_gxbbx0f', 'template_afmqdzu', templateParams)
-                      .then(function (response) {
-                        console.log('SUCCESS!', response.status, response.text);
-
-                        // Ghi nhận sự kiện Lead khi gửi thành công
-                        fbq('track', 'Lead');
-
-                        // Hiển thị thông báo trong div
-                        document.querySelector('.GenerateImages').innerText = "Thông tin của bạn đã được chuyển tới Bác Sỹ. Xin cảm ơn!";
-                        document.getElementById('notification').style.display = 'flex';
-
-                        // Ẩn form
-                        document.getElementById('contact-form').style.display = 'none';
-
-                        // Hiển thị alert
-                        alert("Thông tin của bạn đã được chuyển tới Bác Sỹ. Xin cảm ơn!");
-
-                        // Xóa nội dung của form sau khi gửi thành công
-                        document.getElementById('contact-form').reset();
-                      }, function (error) {
-                        console.log('FAILED...', error);
-                        alert("Gửi email thất bại, bạn vui lòng thử lại.");
-                      });
-                  });
-                </script>
+                 
                 <!-- hết code mới  -->
                 <h3 id="unaolagi">Khối u não là gì?</h3>
                 <pre>

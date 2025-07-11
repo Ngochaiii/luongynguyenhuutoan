@@ -110,6 +110,7 @@
   <link href="assets/css/main.css" rel="stylesheet">
   <link rel="stylesheet" href="header.css">
 <script src="/assets/assets/js/seo-manager.js"></script>
+<script src="/assets/assets/js/submit-data.js"></script>
 </head>
 
 <body class="index-page">
@@ -510,49 +511,7 @@ Cả gia đình cháu và cháu không còn hy vọng, buông xuôi chờ ngày 
                   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
                   <script type="text/javascript"
                     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-                  <script type="text/javascript">
-                    (function () {
-                      emailjs.init("lweMnswlc3fSQAfim"); // Thay bằng User ID của bạn từ EmailJS
-                    })();
-
-                    document.getElementById('contact-form').addEventListener('submit', function (event) {
-                      event.preventDefault(); // Ngăn chặn hành vi mặc định của form
-
-                      // Lấy các giá trị từ form
-                      var fname = document.getElementById('fname').value;
-                      var phone = document.getElementById('phone').value;
-                      var email = document.getElementById('Email').value;
-                      var ans = document.getElementById('ans').value;
-
-                      // Kiểm tra định dạng số điện thoại (ví dụ: chỉ chứa số)
-                      var phonePattern = /^[0-9]+$/;
-                      if (!phonePattern.test(phone)) {
-                        alert("Số điện thoại không hợp lệ. Vui lòng chỉ sử dụng các ký tự số.");
-                        return;
-                      }
-
-                      var templateParams = {
-                        to_name: 'Phòng Khám Đông Y Nguyễn Hữu Toàn',
-                        from_name: fname,
-                        phone_number: phone,
-                        email: email,
-                        message: ans
-                      };
-
-                      // Gửi email bằng EmailJS
-                      emailjs.send('service_gxbbx0f', 'template_afmqdzu', templateParams)
-                        .then(function (response) {
-                          console.log('SUCCESS!', response.status, response.text);
-                          alert("Thông tin của bạn đã được chuyển tới Bác Sỹ. Xin cảm ơn!");
-
-                          // Xóa nội dung của form sau khi gửi thành công
-                          document.getElementById('contact-form').reset();
-                        }, function (error) {
-                          console.log('FAILED...', error);
-                          alert("Gửi email thất bại, bạn vui lòng thử lại.");
-                        });
-                    });
-                  </script>
+                  
 
                   <!-- hết code mới  -->
                   <h3 id="unaolagi">Khối u não là gì?</h3>
