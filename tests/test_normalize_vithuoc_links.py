@@ -2,13 +2,19 @@ from __future__ import annotations
 
 import unittest
 from collections import Counter
+from pathlib import Path
+from tempfile import TemporaryDirectory
+import json
 
 from tools.normalize_vithuoc_links import (
     HttpResponse,
+    CheckResult,
+    audit_project,
     check_unique_urls,
     check_url,
     classify_status,
     find_anchor_links,
+    find_href_links,
     normalize_url,
     transform_document,
 )
@@ -51,6 +57,19 @@ class NormalizeUrlTests(unittest.TestCase):
             "https://thaythuoccuaban.com/vithuoc/b.htm",
         ])
         self.assertTrue(all(source[link.url_start:link.url_end] == link.original_url for link in links))
+
+    def test_finds_canonical_link_href(self) -> None:
+        source = (
+            '<link rel="canonical" '
+            'href="https://amp.thaythuoccuaban.com/vithuoc/a.htm">'
+        )
+        links = find_href_links(source)
+        self.assertEqual(len(links), 1)
+        self.assertEqual(links[0].tag_name, "link")
+        self.assertEqual(
+            links[0].normalized_url,
+            "https://thaythuoccuaban.com/vithuoc/a.html",
+        )
 
 
 class FakeOpener:
@@ -182,6 +201,114 @@ class TransformTests(unittest.TestCase):
         second = transform_document(first.text, self.result("live"))
         self.assertEqual(second.text, first.text)
         self.assertEqual(second.normalized_count, 0)
+
+    def test_normalizes_live_canonical_href(self) -> None:
+        source = (
+            '<link rel="canonical" '
+            'href="https://amp.thaythuoccuaban.com/vithuoc/a.htm">'
+        )
+        transformed = transform_document(source, self.result("live"))
+        self.assertEqual(
+            transformed.text,
+            '<link rel="canonical" '
+            'href="https://thaythuoccuaban.com/vithuoc/a.html">',
+        )
+
+    def test_removes_dead_canonical_tag(self) -> None:
+        source = (
+            '<head><link rel="canonical" '
+            'href="https://amp.thaythuoccuaban.com/vithuoc/a.htm"></head>'
+        )
+        transformed = transform_document(source, self.result("dead", 404))
+        self.assertEqual(transformed.text, "<head></head>")
+
+
+class CliTests(unittest.TestCase):
+    def test_dry_run_checks_unique_url_and_writes_deterministic_report(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            first = root / "a.html"
+            second = root / "sub" / "b.htm"
+            second.parent.mkdir()
+            source = '<a href="https://amp.thaythuoccuaban.com/vithuoc/a.htm">A</a>'
+            first.write_text(source, encoding="utf-8")
+            second.write_text(source, encoding="utf-8")
+            report = root / "reports" / "audit.json"
+            calls = []
+
+            def checker(urls, **_kwargs):
+                calls.append(list(urls))
+                url = "https://thaythuoccuaban.com/vithuoc/a.html"
+                return {url: CheckResult(url, 200, url, "live")}
+
+            summary = audit_project(
+                root,
+                write=False,
+                report_path=report,
+                checker=checker,
+            )
+
+            self.assertEqual(calls, [[
+                "https://thaythuoccuaban.com/vithuoc/a.html",
+                "https://thaythuoccuaban.com/vithuoc/a.html",
+            ]])
+            self.assertEqual(first.read_text(encoding="utf-8"), source)
+            self.assertEqual(second.read_text(encoding="utf-8"), source)
+            payload = json.loads(report.read_text(encoding="utf-8"))
+            self.assertEqual(payload["summary"]["unique_request_urls"], 1)
+            self.assertEqual(payload["links"][0]["references"], ["a.html", "sub/b.htm"])
+            self.assertEqual(summary["changed_files"], 2)
+
+    def test_write_applies_dead_and_live_results_after_checking(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            page = root / "page.html"
+            page.write_text(
+                '<a href="https://amp.thaythuoccuaban.com/vithuoc/live.htm">Live</a>'
+                '<a href="https://amp.thaythuoccuaban.com/vithuoc/dead.htm"><b>Dead</b></a>',
+                encoding="utf-8",
+            )
+
+            def checker(urls, **_kwargs):
+                live = "https://thaythuoccuaban.com/vithuoc/live.html"
+                dead = "https://thaythuoccuaban.com/vithuoc/dead.html"
+                self.assertEqual(set(urls), {live, dead})
+                return {
+                    live: CheckResult(live, 200, live, "live"),
+                    dead: CheckResult(dead, 404, dead, "dead"),
+                }
+
+            audit_project(
+                root,
+                write=True,
+                report_path=root / "audit.json",
+                checker=checker,
+            )
+            self.assertEqual(
+                page.read_text(encoding="utf-8"),
+                '<a href="https://thaythuoccuaban.com/vithuoc/live.html">Live</a><b>Dead</b>',
+            )
+
+    def test_second_write_is_idempotent(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            page = root / "page.html"
+            page.write_text(
+                '<a href="https://thaythuoccuaban.com/vithuoc/a.html">A</a>',
+                encoding="utf-8",
+            )
+            url = "https://thaythuoccuaban.com/vithuoc/a.html"
+
+            def checker(_urls, **_kwargs):
+                return {url: CheckResult(url, 200, url, "live")}
+
+            summary = audit_project(
+                root,
+                write=True,
+                report_path=root / "audit.json",
+                checker=checker,
+            )
+            self.assertEqual(summary["changed_files"], 0)
 
 
 if __name__ == "__main__":
