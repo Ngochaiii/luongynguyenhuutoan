@@ -5,8 +5,12 @@ from __future__ import annotations
 
 import html
 import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
-from urllib.parse import urlsplit, urlunsplit
+from typing import Callable, Iterable
+from urllib.error import HTTPError
+from urllib.parse import urldefrag, urlsplit, urlunsplit
+from urllib.request import Request, urlopen
 
 
 TARGET_HOSTS = {"amp.thaythuoccuaban.com", "thaythuoccuaban.com"}
@@ -25,6 +29,21 @@ class LinkReference:
     url_end: int
     anchor_start: int
     anchor_open_end: int
+
+
+@dataclass(frozen=True)
+class HttpResponse:
+    status: int
+    final_url: str
+
+
+@dataclass(frozen=True)
+class CheckResult:
+    request_url: str
+    status: int | None
+    final_url: str | None
+    classification: str
+    error: str | None = None
 
 
 def normalize_url(url: str) -> str | None:
@@ -59,3 +78,84 @@ def find_anchor_links(text: str) -> list[LinkReference]:
             )
         )
     return references
+
+
+def classify_status(status: int) -> str:
+    if 200 <= status <= 399:
+        return "live"
+    if status in {404, 410}:
+        return "dead"
+    return "uncertain"
+
+
+def default_opener(method: str, url: str, timeout: float) -> HttpResponse:
+    headers = {
+        "User-Agent": "Mozilla/5.0 (compatible; LinkAudit/1.0)",
+        "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.1",
+    }
+    if method == "GET":
+        headers["Range"] = "bytes=0-0"
+    request = Request(url, headers=headers, method=method)
+    try:
+        with urlopen(request, timeout=timeout) as response:
+            if method == "GET":
+                response.read(1)
+            return HttpResponse(response.getcode(), response.geturl())
+    except HTTPError as error:
+        return HttpResponse(error.code, error.geturl())
+
+
+def check_url(
+    url: str,
+    *,
+    opener: Callable[[str, str, float], HttpResponse] = default_opener,
+    timeout: float = 15,
+) -> CheckResult:
+    request_url = urldefrag(url)[0]
+    try:
+        head = opener("HEAD", request_url, timeout)
+        if classify_status(head.status) == "live":
+            return CheckResult(
+                request_url, head.status, head.final_url, "live"
+            )
+    except Exception:
+        pass
+
+    try:
+        response = opener("GET", request_url, timeout)
+        return CheckResult(
+            request_url,
+            response.status,
+            response.final_url,
+            classify_status(response.status),
+        )
+    except Exception as error:
+        return CheckResult(
+            request_url,
+            None,
+            None,
+            "uncertain",
+            f"{type(error).__name__}: {error}",
+        )
+
+
+def check_unique_urls(
+    urls: Iterable[str],
+    *,
+    opener: Callable[[str, str, float], HttpResponse] = default_opener,
+    workers: int = 8,
+    timeout: float = 15,
+) -> dict[str, CheckResult]:
+    request_urls = sorted({urldefrag(url)[0] for url in urls})
+    results: dict[str, CheckResult] = {}
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = {
+            executor.submit(
+                check_url, url, opener=opener, timeout=timeout
+            ): url
+            for url in request_urls
+        }
+        for future in as_completed(futures):
+            url = futures[future]
+            results[url] = future.result()
+    return results
