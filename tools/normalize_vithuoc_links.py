@@ -7,7 +7,7 @@ import html
 import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
-from typing import Callable, Iterable
+from typing import Callable, Iterable, Mapping
 from urllib.error import HTTPError
 from urllib.parse import urldefrag, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
@@ -15,6 +15,9 @@ from urllib.request import Request, urlopen
 
 TARGET_HOSTS = {"amp.thaythuoccuaban.com", "thaythuoccuaban.com"}
 ANCHOR_OPEN_RE = re.compile(r"<a\b[^>]*>", re.IGNORECASE | re.DOTALL)
+ANCHOR_FULL_RE = re.compile(
+    r"<a\b[^>]*>(?P<inner>.*?)</a\s*>", re.IGNORECASE | re.DOTALL
+)
 HREF_RE = re.compile(
     r"\bhref\s*=\s*(?P<quote>['\"])(?P<url>.*?)(?P=quote)",
     re.IGNORECASE | re.DOTALL,
@@ -44,6 +47,13 @@ class CheckResult:
     final_url: str | None
     classification: str
     error: str | None = None
+
+
+@dataclass(frozen=True)
+class TransformResult:
+    text: str
+    normalized_count: int
+    unwrapped_count: int
 
 
 def normalize_url(url: str) -> str | None:
@@ -159,3 +169,44 @@ def check_unique_urls(
             url = futures[future]
             results[url] = future.result()
     return results
+
+
+def transform_document(
+    text: str, results: Mapping[str, CheckResult]
+) -> TransformResult:
+    unwrapped_count = 0
+    full_replacements: list[tuple[int, int, str]] = []
+    for anchor in ANCHOR_FULL_RE.finditer(text):
+        opening = ANCHOR_OPEN_RE.match(anchor.group(0))
+        if opening is None:
+            continue
+        href = HREF_RE.search(opening.group(0))
+        if href is None:
+            continue
+        normalized = normalize_url(href.group("url"))
+        if normalized is None:
+            continue
+        result = results.get(urldefrag(normalized)[0])
+        if result is not None and result.classification == "dead":
+            full_replacements.append(
+                (anchor.start(), anchor.end(), anchor.group("inner"))
+            )
+            unwrapped_count += 1
+
+    transformed = text
+    for start, end, replacement in reversed(full_replacements):
+        transformed = transformed[:start] + replacement + transformed[end:]
+
+    normalized_count = 0
+    for reference in reversed(find_anchor_links(transformed)):
+        replacement = html.escape(reference.normalized_url, quote=True)
+        if html.unescape(reference.original_url) == reference.normalized_url:
+            continue
+        transformed = (
+            transformed[: reference.url_start]
+            + replacement
+            + transformed[reference.url_end :]
+        )
+        normalized_count += 1
+
+    return TransformResult(transformed, normalized_count, unwrapped_count)

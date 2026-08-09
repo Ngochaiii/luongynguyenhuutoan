@@ -10,6 +10,7 @@ from tools.normalize_vithuoc_links import (
     classify_status,
     find_anchor_links,
     normalize_url,
+    transform_document,
 )
 
 
@@ -123,6 +124,64 @@ class HttpCheckTests(unittest.TestCase):
         self.assertEqual(Counter(opener.calls), Counter({
             ("HEAD", "https://thaythuoccuaban.com/a.html"): 1,
         }))
+
+
+class TransformTests(unittest.TestCase):
+    def result(self, classification: str, status: int | None = 200):
+        url = "https://thaythuoccuaban.com/vithuoc/a.html"
+        return {
+            url: __import__(
+                "tools.normalize_vithuoc_links", fromlist=["CheckResult"]
+            ).CheckResult(url, status, url, classification)
+        }
+
+    def test_rewrites_live_href_without_reformatting_document(self) -> None:
+        source = (
+            '<p><a class="x" '
+            'href="https://amp.thaythuoccuaban.com/vithuoc/a.htm">A</a></p>'
+        )
+        expected = (
+            '<p><a class="x" '
+            'href="https://thaythuoccuaban.com/vithuoc/a.html">A</a></p>'
+        )
+        transformed = transform_document(source, self.result("live"))
+        self.assertEqual(transformed.text, expected)
+        self.assertEqual(transformed.normalized_count, 1)
+        self.assertEqual(transformed.unwrapped_count, 0)
+
+    def test_unwraps_dead_anchor_but_keeps_children(self) -> None:
+        source = (
+            '<p><a href="https://amp.thaythuoccuaban.com/vithuoc/a.htm">'
+            '<strong>A</strong><img src="a.jpg"></a></p>'
+        )
+        transformed = transform_document(source, self.result("dead", 404))
+        self.assertEqual(
+            transformed.text,
+            '<p><strong>A</strong><img src="a.jpg"></p>',
+        )
+        self.assertEqual(transformed.unwrapped_count, 1)
+
+    def test_keeps_uncertain_anchor_and_normalizes_its_href(self) -> None:
+        source = (
+            "<a href='https://amp.thaythuoccuaban.com/vithuoc/a.HTM?x=1#d'>A</a>"
+        )
+        url = "https://thaythuoccuaban.com/vithuoc/a.html?x=1#d"
+        request_url = "https://thaythuoccuaban.com/vithuoc/a.html?x=1"
+        results = {
+            request_url: __import__(
+                "tools.normalize_vithuoc_links", fromlist=["CheckResult"]
+            ).CheckResult(request_url, 429, request_url, "uncertain")
+        }
+        transformed = transform_document(source, results)
+        self.assertIn(f"href='{url}'", transformed.text)
+        self.assertIn(">A</a>", transformed.text)
+
+    def test_second_transform_is_idempotent(self) -> None:
+        source = '<a href="https://amp.thaythuoccuaban.com/vithuoc/a.htm">A</a>'
+        first = transform_document(source, self.result("live"))
+        second = transform_document(first.text, self.result("live"))
+        self.assertEqual(second.text, first.text)
+        self.assertEqual(second.normalized_count, 0)
 
 
 if __name__ == "__main__":
