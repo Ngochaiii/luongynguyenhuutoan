@@ -1,81 +1,1012 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-<style type="text/css">
-<!--
-h1   {color: red;font-size:26px;text-align: center;}
-p    {font-family: 'Merriweather', 'Times New Roman', Times, Serif;font-size: 18px;text-indent: 30px;}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Danh mục bài thuốc – Đông y gia truyền chữa bệnh mãn tính | Lương y Nguyễn Hữu Toàn</title>
+  <meta name="description"
+    content="Danh mục các bài thuốc đông y gia truyền 15 đời của Lương y Nguyễn Hữu Toàn: vô sinh hiếm muộn, tắc vòi trứng, hở eo tử cung, suy buồng trứng, dạ dày, tiền đình, u não." />
+  <link rel="Shortcut Icon" href="favico.ico" type="image/x-icon" />
+  <meta property="og:title" content="Danh mục bài thuốc – Đông y gia truyền chữa bệnh mãn tính" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description"
+    content="Danh mục các bài thuốc đông y gia truyền 15 đời chữa bệnh mãn tính, vô sinh hiếm muộn của Lương y Nguyễn Hữu Toàn." />
 
--->
-</style>
+  <style>
+    :root {
+      --green-900: #14361f;
+      --green-800: #1b5e35;
+      --green-700: #22733f;
+      --green-600: #2e8b52;
+      --green-100: #e5f3ea;
+      --gold: #c8932c;
+      --gold-soft: #f5e9cf;
+      --ink: #1f2a24;
+      --ink-soft: #5b6b62;
+      --line: #e3e9e4;
+      --bg: #f7f9f6;
+      --card: #ffffff;
+      --radius: 14px;
+      --shadow-sm: 0 1px 2px rgba(20, 54, 31, .06), 0 2px 8px rgba(20, 54, 31, .05);
+      --shadow-md: 0 6px 18px rgba(20, 54, 31, .10), 0 2px 6px rgba(20, 54, 31, .06);
+    }
 
+    * {
+      box-sizing: border-box;
+    }
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MLB6547');</script>
-<!-- End Google Tag Manager -->
-<script>
-(function() {
-    // 1. Xóa tất cả thẻ robots có noindex
-    var allRobotsNoindex = document.querySelectorAll('meta[name="robots"][content*="noindex"]');
-    for (var i = 0; i < allRobotsNoindex.length; i++) {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ---------- Top bar ---------- */
+    .topbar {
+      background: var(--green-800);
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .topbar .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 42px;
+    }
+
+    .topbar a {
+      color: #d9f0e1;
+    }
+
+    .topbar a:hover {
+      color: #fff;
+    }
+
+    .topbar strong {
+      color: #ffe6a8;
+    }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .site-header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      flex: none;
+    }
+
+    .brand-name {
+      display: block;
+      font-weight: 800;
+      color: var(--green-800);
+      letter-spacing: .3px;
+      line-height: 1.2;
+      font-size: 18px;
+    }
+
+    .brand-sub {
+      display: block;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    .hotline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green-600);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+      white-space: nowrap;
+    }
+
+    .hotline:hover {
+      background: var(--green-700);
+      color: #fff;
+    }
+
+    .hotline small {
+      display: block;
+      font-weight: 500;
+      font-size: 11px;
+      opacity: .9;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background:
+        radial-gradient(1200px 320px at 80% -60%, rgba(200, 147, 44, .22), transparent 70%),
+        linear-gradient(160deg, var(--green-800), var(--green-900));
+      color: #fff;
+      padding: 46px 0 40px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: #ffdf9e;
+      border: 1px solid rgba(255, 223, 158, .45);
+      border-radius: 999px;
+      padding: 5px 14px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(26px, 4.2vw, 40px);
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 680px;
+      color: #cfe6d8;
+      font-size: 17px;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 12px;
+      padding: 12px 18px;
+      min-width: 130px;
+    }
+
+    .stat b {
+      display: block;
+      font-size: 22px;
+      color: #ffe6a8;
+      line-height: 1.2;
+    }
+
+    .stat span {
+      font-size: 13px;
+      color: #cfe6d8;
+    }
+
+    /* ---------- Toolbar ---------- */
+    .toolbar {
+      margin: -26px auto 0;
+      position: relative;
+      z-index: 5;
+    }
+
+    .toolbar-inner {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      padding: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .search {
+      position: relative;
+      flex: 1 1 280px;
+    }
+
+    .search svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: .45;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 12px 14px 12px 42px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font: inherit;
+      font-size: 16px;
+      background: #fbfdfb;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .search input:focus {
+      border-color: var(--green-600);
+      box-shadow: 0 0 0 3px rgba(46, 139, 82, .15);
+      background: #fff;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink-soft);
+      border-radius: 999px;
+      padding: 9px 16px;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .15s;
+    }
+
+    .chip:hover {
+      border-color: var(--green-600);
+      color: var(--green-700);
+    }
+
+    .chip[aria-pressed="true"] {
+      background: var(--green-700);
+      border-color: var(--green-700);
+      color: #fff;
+    }
+
+    /* ---------- Sections ---------- */
+    main {
+      padding: 40px 0 10px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--green-100);
+    }
+
+    .section-head .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex: none;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--green-800);
+      letter-spacing: .2px;
+    }
+
+    .section-head .count {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--ink-soft);
+      background: var(--green-100);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: #cfe0d5;
+    }
+
+    .card .ico {
+      flex: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      background: var(--green-100);
+      color: var(--green-700);
+      display: grid;
+      place-items: center;
+    }
+
+    .card .body {
+      min-width: 0;
+    }
+
+    .card h3 {
+      margin: 0 0 4px;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--green-900);
+    }
+
+    .card:hover h3 {
+      color: var(--green-600);
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--ink-soft);
+    }
+
+    .card .go {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-600);
+    }
+
+    .empty {
+      display: none;
+      text-align: center;
+      color: var(--ink-soft);
+      background: #fff;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      padding: 40px 20px;
+    }
+
+    /* ---------- CTA ---------- */
+    .cta {
+      background: linear-gradient(135deg, var(--green-700), var(--green-900));
+      color: #fff;
+      border-radius: 18px;
+      padding: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0 46px;
+    }
+
+    .cta h2 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .cta p {
+      margin: 0;
+      color: #cfe6d8;
+      font-size: 15px;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #2a1e05;
+      font-weight: 800;
+      padding: 13px 26px;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-gold:hover {
+      background: #dda63a;
+      color: #2a1e05;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--green-900);
+      color: #b9d4c3;
+      padding: 30px 0;
+      font-size: 14px;
+    }
+
+    footer .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer a {
+      color: #ffe6a8;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        font-size: 16px;
+      }
+
+      .site-header .wrap {
+        flex-wrap: wrap;
+      }
+
+      .hotline {
+        padding: 8px 14px;
+      }
+
+      .brand-sub {
+        display: none;
+      }
+
+      .hero {
+        padding: 34px 0 34px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        padding: 24px;
+      }
+    }
+  </style>
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start': new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MLB6547');</script>
+  <!-- End Google Tag Manager -->
+  <script>
+    (function () {
+      // 1. Xóa tất cả thẻ robots có noindex
+      var allRobotsNoindex = document.querySelectorAll('meta[name="robots"][content*="noindex"]');
+      for (var i = 0; i < allRobotsNoindex.length; i++) {
         allRobotsNoindex[i].remove();
-    }
-    
-    var allGooglebotNoindex = document.querySelectorAll('meta[name="googlebot"][content*="noindex"]');
-    for (var j = 0; j < allGooglebotNoindex.length; j++) {
+      }
+
+      var allGooglebotNoindex = document.querySelectorAll('meta[name="googlebot"][content*="noindex"]');
+      for (var j = 0; j < allGooglebotNoindex.length; j++) {
         allGooglebotNoindex[j].remove();
-    }
-    
-    // 2. Thêm canonical URL (chỉ 1 lần)
-    if (!document.querySelector('link[rel="canonical"]')) {
+      }
+
+      // 2. Thêm canonical URL (chỉ 1 lần)
+      if (!document.querySelector('link[rel="canonical"]')) {
         var canonicalLink = document.createElement('link');
         canonicalLink.rel = 'canonical';
         canonicalLink.href = window.location.href;
         document.head.appendChild(canonicalLink);
-    }
-})();
-</script>
+      }
+    })();
+  </script>
 </head>
+
 <body>
 
-<h1><a target="_blank" href="phuong-phap-tri-ho-eo-tu-cung-hieu-qua.html" ></a>ĐÔNG Y GIA TRUYỀN CHỮA BỆNH MÃN TÍNH</h1>
-<p>&nbsp;</p>
-<p><a target="_blank" href="dong-y-chua-roi-loan-tien-dinh.html">Đông y chữa rối loạn tiền đình</a></p>
-<p><a target="_blank" href="dong-y-chua-benh-da-day.html">Đông y chữa bệnh dạ dày</a></p>
+  <div class="topbar">
+    <div class="wrap">
+      <span>Phòng khám Đông y gia truyền 15 đời – Lương y Nguyễn Hữu Toàn</span>
+      <span>Tư vấn miễn phí: <strong><a href="tel:18006834">1800 68 34</a></strong></span>
+    </div>
+  </div>
 
-<p><a target="_blank" href="dong-y-chua-benh-u-nao.html">Đông y chữa bệnh u não</a></p>
-<p><a target="_blank" href="khau-eo-tu-cung.html">Khâu eo tử cung và những hệ lụy</a></p>
-<p><a target="_blank" href="co-hoi-co-con-khi-tinh-trung-yeu.html">Cơ hội có con khi tinh trùng yếu</a></p>
-<p><a target="_blank" href="tac-voi-trung-bai-thuoc-dong-y-chua-tac-voi-trung.html">Bài thuốc đông y gia truyền chữa tắc vòi trứng</a></p>
-<p><a target="_blank" href="suy-buong-trung-co-con-co-hoi-lam-me-nua-hay-khong.html">Đông y chữa suy buồng trứng</a></p>
-<p><a target="_blank" href="tac-voi-trung-nen-va-khong-nen-an-gi.html">Tắc vòi trứng nên và không nên ăn gì</a></p>
-<p><a target="_blank" href="dau-hieu-nhan-biet-tac-voi-trung.html">Dấu hiệu nhận biết tắc vòi trứng</a></p>
-<p><a target="_blank" href="phuong-phap-dieu-tri-tac-voi-trung-3-khong.html">Phương pháp điều trị tắc vòi trứng bằng đông y </a></p>
-<p><a target="_blank" href="thong-tac-voi-trung-bang-phuong-phap-cham-cuu.html">Thông tắc vòi trứng bằng phương pháp châm cứu</a></p>
-<p><a target="_blank" href="than-y-dat-cang-mang-lai-hanh-phuc-cho-nhieu-gia-dinh-hiem-muon.html">Lương y đất cảng mang lại niềm vui cho nhiều gia đình hiếm muộn</a></p>
-<p><a target="_blank" href="thuoc-dong-y-co-the-thong-duoc-voi-trung-khong.html">Thuốc đông y có thể chữa được tắc vòi trứng?</a></p>
-<p><a target="_blank" href="cham-dut-noi-lo-mat-con-vi-ho-eo-tu-cung.html">Chấm dứt nỗi lo mất con vì hở eo tử cung</a></p>
-<p><a target="_blank" href="phuong-phap-tri-ho-eo-tu-cung-hieu-qua.html">Phương pháp trị hở eo tử cung hiệu quả</a></p>
-<p><a target="_blank" href="ky-dieu-bai-thuoc-chua-ho-eo-tu-cung.html">Kỳ diệu bài thuốc chữa hở eo tử cung</a></p>
-<p><a target="_blank" href="chua-het-da-nang-buong-trung-thuoc-gia-truyen-15-doi.html"></a></p>
-<p><a target="_blank" href="ky-dieu-bai-thuoc-chua-ho-eo-tu-cung.html"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<script type="text/javascript">
-var list = document.querySelectorAll('[href^="tel:"]');
-for(var i = 0; i < list.length; i++) {
-list[i].addEventListener('click', function() {
-ga('send', 'event', 'button', 'click', 'Hotline');
-});
-}
-</script>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="logo-nha-thuoc.webp" alt="Đông y Nguyễn Hữu Toàn" width="52" height="52" />
+        <span>
+          <span class="brand-name">ĐÔNG Y NGUYỄN HỮU TOÀN</span>
+          <span class="brand-sub">Bài thuốc gia truyền 15 đời</span>
+        </span>
+      </a>
+      <a class="hotline" href="tel:18006834">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+        </svg>
+        <span>1800 68 34<small>Tư vấn sức khoẻ miễn phí</small></span>
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Danh mục bài thuốc</span>
+      <h1>Đông y gia truyền chữa bệnh mãn tính</h1>
+      <p>Tổng hợp các bài viết về phương pháp điều trị bằng thuốc đông y gia truyền 15 đời của Lương y Nguyễn Hữu Toàn –
+        từ vô sinh hiếm muộn, tắc vòi trứng, hở eo tử cung đến các bệnh mãn tính thường gặp.</p>
+      <div class="hero-stats">
+        <div class="stat"><b>15 đời</b><span>Gia truyền nghề thuốc</span></div>
+        <div class="stat"><b>17</b><span>Bài viết chuyên đề</span></div>
+        <div class="stat"><b>4</b><span>Nhóm bệnh chính</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="toolbar wrap">
+    <div class="toolbar-inner">
+      <div class="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg>
+        <input type="search" id="q" placeholder="Tìm bài thuốc, tên bệnh…" aria-label="Tìm kiếm bài viết" />
+      </div>
+      <div class="chips" id="chips">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">Tất cả</button>
+        <button class="chip" type="button" data-filter="voi-trung" aria-pressed="false">Tắc vòi trứng</button>
+        <button class="chip" type="button" data-filter="tu-cung" aria-pressed="false">Hở eo tử cung</button>
+        <button class="chip" type="button" data-filter="hiem-muon" aria-pressed="false">Hiếm muộn</button>
+        <button class="chip" type="button" data-filter="man-tinh" aria-pressed="false">Bệnh mãn tính</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <!-- Tắc vòi trứng -->
+    <section class="section" data-group="voi-trung">
+      <div class="section-head">
+        <span class="dot"></span>
+        <h2>Tắc vòi trứng</h2>
+        <span class="count">6 bài</span>
+      </div>
+      <div class="grid">
+
+        <a class="card" target="_blank" href="tac-voi-trung-bai-thuoc-dong-y-chua-tac-voi-trung.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v6" />
+              <path d="M9 8h6l1.5 9a4.5 4.5 0 0 1-9 0z" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Bài thuốc đông y gia truyền chữa tắc vòi trứng</h3>
+            <p>Bài thuốc chủ lực điều trị thông tắc vòi trứng không cần phẫu thuật.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="phuong-phap-dieu-tri-tac-voi-trung-3-khong.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Phương pháp điều trị tắc vòi trứng bằng đông y</h3>
+            <p>Ba nguyên tắc “3 không” trong điều trị tắc vòi trứng bằng thuốc nam.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="dau-hieu-nhan-biet-tac-voi-trung.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 8h.01M11 12h1v4h1" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Dấu hiệu nhận biết tắc vòi trứng</h3>
+            <p>Những triệu chứng sớm chị em cần lưu ý để đi khám kịp thời.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="thuoc-dong-y-co-the-thong-duoc-voi-trung-khong.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9.5 3.5h5v4l3 6.5a5.5 5.5 0 0 1-11 0l3-6.5z" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Thuốc đông y có thể chữa được tắc vòi trứng?</h3>
+            <p>Giải đáp cơ chế tác dụng của thuốc đông y với vòi trứng bị tắc.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="thong-tac-voi-trung-bang-phuong-phap-cham-cuu.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20 20 4" />
+              <path d="M14 4h6v6" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Thông tắc vòi trứng bằng phương pháp châm cứu</h3>
+            <p>Kết hợp châm cứu với thuốc uống để tăng hiệu quả điều trị.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="tac-voi-trung-nen-va-khong-nen-an-gi.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 3v8a3 3 0 0 0 6 0V3" />
+              <path d="M7 11v10" />
+              <path d="M17 3c-2 2-2 6-2 8h4c0-2 0-6-2-8zM17 11v10" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Tắc vòi trứng nên và không nên ăn gì</h3>
+            <p>Chế độ dinh dưỡng hỗ trợ trong quá trình điều trị.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Hở eo tử cung -->
+    <section class="section" data-group="tu-cung">
+      <div class="section-head">
+        <span class="dot"></span>
+        <h2>Hở eo tử cung</h2>
+        <span class="count">4 bài</span>
+      </div>
+      <div class="grid">
+
+        <a class="card" target="_blank" href="phuong-phap-tri-ho-eo-tu-cung-hieu-qua.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10z" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Phương pháp trị hở eo tử cung hiệu quả</h3>
+            <p>Hướng điều trị bảo tồn thai kỳ bằng thuốc đông y gia truyền.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="cham-dut-noi-lo-mat-con-vi-ho-eo-tu-cung.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 12a8 8 0 1 0-3 6.2" />
+              <path d="M20 6v6h-6" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Chấm dứt nỗi lo mất con vì hở eo tử cung</h3>
+            <p>Câu chuyện giữ thai thành công của các mẹ từng sảy thai liên tiếp.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="ky-dieu-bai-thuoc-chua-ho-eo-tu-cung.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3 2.2 4.7 5.1.7-3.7 3.6.9 5.1L12 14.7 7.5 17.1l.9-5.1L4.7 8.4l5.1-.7z" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Kỳ diệu bài thuốc chữa hở eo tử cung</h3>
+            <p>Thành phần và cách dùng bài thuốc giữ thai gia truyền.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="khau-eo-tu-cung.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="6" cy="6" r="2.5" />
+              <circle cx="6" cy="18" r="2.5" />
+              <path d="M20 4 8.5 16.5M20 20 8.5 7.5" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Khâu eo tử cung và những hệ lụy</h3>
+            <p>Những rủi ro cần cân nhắc trước khi quyết định khâu eo.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Vô sinh - hiếm muộn -->
+    <section class="section" data-group="hiem-muon">
+      <div class="section-head">
+        <span class="dot"></span>
+        <h2>Vô sinh – hiếm muộn</h2>
+        <span class="count">4 bài</span>
+      </div>
+      <div class="grid">
+
+        <a class="card" target="_blank" href="co-hoi-co-con-khi-tinh-trung-yeu.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="8" r="4" />
+              <path d="M12 11c3 1 6 4 9 10" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Cơ hội có con khi tinh trùng yếu</h3>
+            <p>Cải thiện số lượng và chất lượng tinh trùng bằng đông y.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="suy-buong-trung-co-con-co-hoi-lam-me-nua-hay-khong.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="9" r="5" />
+              <path d="M12 14v7M9 18h6" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Đông y chữa suy buồng trứng</h3>
+            <p>Phục hồi chức năng buồng trứng, tăng chỉ số AMH.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="chua-het-da-nang-buong-trung-thuoc-gia-truyen-15-doi.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8" />
+              <circle cx="10" cy="10" r="1.6" />
+              <circle cx="14.5" cy="13" r="1.6" />
+              <circle cx="10.5" cy="15" r="1.6" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Chữa hết đa nang buồng trứng bằng thuốc gia truyền 15 đời</h3>
+            <p>Điều hoà nội tiết, khôi phục rụng trứng tự nhiên.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="than-y-dat-cang-mang-lai-hanh-phuc-cho-nhieu-gia-dinh-hiem-muon.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Lương y đất cảng mang lại niềm vui cho nhiều gia đình hiếm muộn</h3>
+            <p>Hành trình chữa bệnh và những gia đình đã có tin vui.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Bệnh mãn tính -->
+    <section class="section" data-group="man-tinh">
+      <div class="section-head">
+        <span class="dot"></span>
+        <h2>Bệnh mãn tính khác</h2>
+        <span class="count">3 bài</span>
+      </div>
+      <div class="grid">
+
+        <a class="card" target="_blank" href="dong-y-chua-roi-loan-tien-dinh.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 4a5 5 0 0 0-5 5c0 2 1 3 1 5h8c0-2 1-3 1-5a5 5 0 0 0-5-5z" />
+              <path d="M9 18h6M10 21h4" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Đông y chữa rối loạn tiền đình</h3>
+            <p>Trị tận gốc chứng hoa mắt, chóng mặt, ù tai kéo dài.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="dong-y-chua-benh-da-day.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 3v5c0 3-4 4-4 8a5 5 0 0 0 5 5c4 0 6-3 6-7 0-3-2-4-2-7" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Đông y chữa bệnh dạ dày</h3>
+            <p>Viêm loét, trào ngược, viêm hang vị – điều trị bằng thuốc nam.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+        <a class="card" target="_blank" href="dong-y-chua-benh-u-nao.html">
+          <span class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9.5 3a3 3 0 0 0-3 3 3 3 0 0 0-1 5.7A3 3 0 0 0 7 17a3 3 0 0 0 5 2V4.5A2.5 2.5 0 0 0 9.5 3z" />
+              <path d="M14.5 3a3 3 0 0 1 3 3 3 3 0 0 1 1 5.7A3 3 0 0 1 17 17a3 3 0 0 1-5 2" />
+            </svg>
+          </span>
+          <span class="body">
+            <h3>Đông y chữa bệnh u não</h3>
+            <p>Hỗ trợ điều trị u não không cần phẫu thuật.</p>
+            <span class="go">Xem bài viết →</span>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+    <p class="empty" id="empty">Không tìm thấy bài viết phù hợp. Vui lòng thử từ khoá khác.</p>
+
+    <div class="cta">
+      <div>
+        <h2>Cần tư vấn về tình trạng bệnh của bạn?</h2>
+        <p>Gọi tổng đài miễn phí để được lương y tư vấn trực tiếp, không mất phí.</p>
+      </div>
+      <a class="btn-gold" href="tel:18006834">Gọi ngay 1800 68 34</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© Đông y Nguyễn Hữu Toàn – Bài thuốc gia truyền 15 đời</span>
+      <span>
+        <a href="index.html">Trang chủ</a> ·
+        <a href="lienhe.html">Liên hệ</a> ·
+        <a href="vithuoc/index.html">Vị thuốc</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var q = document.getElementById('q');
+      var chips = document.querySelectorAll('#chips .chip');
+      var sections = document.querySelectorAll('.section');
+      var empty = document.getElementById('empty');
+      var activeFilter = 'all';
+
+      function normalize(s) {
+        s = s.toLowerCase();
+        return s.normalize ? s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\u0111/g, 'd') : s;
+      }
+
+      function apply() {
+        var term = normalize(q.value.trim());
+        var totalVisible = 0;
+
+        sections.forEach(function (section) {
+          var groupOk = (activeFilter === 'all' || section.dataset.group === activeFilter);
+          var shown = 0;
+
+          section.querySelectorAll('.card').forEach(function (card) {
+            var text = normalize(card.textContent);
+            var match = groupOk && (term === '' || text.indexOf(term) !== -1);
+            card.style.display = match ? '' : 'none';
+            if (match) shown++;
+          });
+
+          section.style.display = shown ? '' : 'none';
+          var count = section.querySelector('.count');
+          if (count) count.textContent = shown + ' bài';
+          totalVisible += shown;
+        });
+
+        empty.style.display = totalVisible ? 'none' : 'block';
+      }
+
+      q.addEventListener('input', apply);
+
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          activeFilter = chip.dataset.filter;
+          chips.forEach(function (c) {
+            c.setAttribute('aria-pressed', String(c === chip));
+          });
+          apply();
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    // Ghi nhận sự kiện bấm hotline
+    (function () {
+      var list = document.querySelectorAll('[href^="tel:"]');
+      for (var i = 0; i < list.length; i++) {
+        list[i].addEventListener('click', function () {
+          if (typeof gtag === 'function') {
+            gtag('event', 'Click', { 'event_category': 'Hotline', 'event_label': '18006834' });
+          } else if (window.dataLayer) {
+            window.dataLayer.push({ event: 'hotline_click', label: '18006834' });
+          }
+        });
+      }
+    })();
+  </script>
 </body>
+
 </html>
