@@ -110,7 +110,7 @@ bạn</title>
 <p>
 						 <u><b>Điện
 						thoại liên hệ</b></u>: <b>18006834
-						-0912759613</b></p>
+						-0334266646</b></p>
 <p>
 						 <b>Email:</b>
 						<a href="mailto:Thaythuoccuaban@thaythuoccuaban.com">
@@ -186,7 +186,7 @@ bạn</title>
 
   <div class="herbal-floating-actions" aria-label="Liên hệ nhanh">
     <a href="tel:18006834" aria-label="Gọi hotline"><i class="bi bi-telephone-fill"></i></a>
-    <a href="https://zalo.me/0943954889" aria-label="Liên hệ Zalo"><span class="fw-bold">Zalo</span></a>
+    <a href="https://zalo.me/0334266646" aria-label="Liên hệ Zalo"><span class="fw-bold">Zalo</span></a>
   </div>
 
   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
