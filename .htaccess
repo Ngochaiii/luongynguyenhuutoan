@@ -1,1 +1,23 @@
- 
+# ============================================================
+#  Chuan hoa URL cho luongynguyenhuutoan.com
+#  (chi co tac dung neu web server la Apache / LiteSpeed.
+#   Neu dung Nginx, xem file nginx-redirect.conf)
+# ============================================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Ep ve HTTPS
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^(.*)$ https://luongynguyenhuutoan.com/$1 [R=301,L]
+
+    # 2. Ep ve non-www  (www.luongynguyenhuutoan.com -> luongynguyenhuutoan.com)
+    RewriteCond %{HTTP_HOST} ^www\.luongynguyenhuutoan\.com$ [NC]
+    RewriteRule ^(.*)$ https://luongynguyenhuutoan.com/$1 [R=301,L]
+
+    # 3. /index.html  ->  /   (tranh trung lap trang chu)
+    RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+    RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
+</IfModule>
+
+ErrorDocument 404 /404.html
